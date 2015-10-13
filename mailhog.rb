@@ -118,8 +118,8 @@ class Mailhog < Formula
   # Use file resource instead of revision until https://github.com/Homebrew/homebrew/issues/44828
   # is resolved.
   go_resource "labix.org/v2/mgo" do
-    url "https://github.com/go-mgo/mgo/archive/2e26580ebcca4eca6533535f2dd062cd6bff44ac.zip"
-    sha256 "db0e33b412526d11c18b60f4bba140e490ea7838e454cd031e411b4810ece239"
+    url "https://github.com/go-mgo/mgo/archive/2e26580ebcca4eca6533535f2dd062cd6bff44ac.tar.gz"
+    sha256 "9ef389ccc5410e9cf54073b8db048739577c5ed8f2491cfd35f7e3a695082503"
   end
 
   def install
