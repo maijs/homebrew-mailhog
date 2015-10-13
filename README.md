@@ -26,8 +26,7 @@ To use MailHog as a sendmail replacement for PHP, add the following line to your
 ```
 sendmail_path = (HOMEBREW_PREFIX)/bin/MailHog sendmail test@test
 ```
-
-Refer to `brew info mailhog` to see the full path to MailHog on your system.
+Restart PHP process after you make the change to `php.ini` file. Refer to `brew info mailhog` to see the full path to MailHog on your system.
 
 ## Please note
 This repository is for my own testing only and it can be removed at any time. The goal is to have `mailhog.rb` formula available in official Homebrew repo.
