@@ -94,6 +94,8 @@ class Mailhog < Formula
     url "https://github.com/philhofer/fwd.git", :revision => "8fd9a4b75098b2125fe442e48a3ffbf738254e13"
   end
 
+  # Use file resource instead of revision until https://github.com/Homebrew/homebrew/issues/44828
+  # is resolved.
   go_resource "labix.org/v2/mgo" do
     url "https://github.com/go-mgo/mgo/archive/2e26580ebcca4eca6533535f2dd062cd6bff44ac.zip"
     sha256 "db0e33b412526d11c18b60f4bba140e490ea7838e454cd031e411b4810ece239"
@@ -105,7 +107,6 @@ class Mailhog < Formula
     
     ENV["GOPATH"] = buildpath
     Language::Go.stage_deps resources, buildpath/"src"
-    # sleep(300)
     system "go", "build", "-o", "MailHog"
     bin.install "MailHog"
   end

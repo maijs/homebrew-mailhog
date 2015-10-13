@@ -13,7 +13,7 @@ brew install https://raw.githubusercontent.com/maijs/homebrew-mailhog/master/mai
 ## Configuration
 If you want to run MailHog manually, you can use [command line options](https://github.com/mailhog/MailHog/blob/master/docs/CONFIG.md) to configure MailHog.
 
-# MailHog as `sendmail` replacement
+# MailHog as sendmail replacement
 To use MailHog as a sendmail replacement for PHP, add the following line to your `php.ini` file:
 ```
 sendmail_path = (HOMEBREW_PREFIX)/bin/MailHog sendmail test@test
