@@ -1,4 +1,4 @@
-# Homebrew Mailhog
+# 📭 Homebrew Mailhog
 ## How do I install thee formula?
 `brew install maijs/mailhog/mailhog`
 
