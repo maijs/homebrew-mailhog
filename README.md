@@ -1,5 +1,5 @@
 # :mailbox: Homebrew Mailhog
-## How do I install thee formula?
+## How do I install the formula?
 `brew install maijs/mailhog/mailhog`
 
 Or `brew tap maijs/mailhog` and then `brew install mailhog`.
