@@ -115,15 +115,13 @@ class Mailhog < Formula
       :revision => "8fd9a4b75098b2125fe442e48a3ffbf738254e13"
   end
 
-  # Use file resource instead of revision until https://github.com/Homebrew/homebrew/issues/44828
-  # is resolved.
   go_resource "labix.org/v2/mgo" do
-    url "https://github.com/go-mgo/mgo/archive/2e26580ebcca4eca6533535f2dd062cd6bff44ac.tar.gz"
-    sha256 "9ef389ccc5410e9cf54073b8db048739577c5ed8f2491cfd35f7e3a695082503"
+    url "https://github.com/go-mgo/mgo.git",
+      :revision => "2e26580ebcca4eca6533535f2dd062cd6bff44ac"
   end
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/mailhog/"
+    (buildpath/"src/github.com/mailhog/").mkpath
     ln_s buildpath, "#{buildpath}/src/github.com/mailhog/MailHog"
 
     ENV["GOPATH"] = buildpath
@@ -157,12 +155,17 @@ class Mailhog < Formula
   end
 
   test do
-    # Test for following default MailHog output:
-    # 1970/01/01 00:00:01 Using in-memory storage
-    # 1970/01/01 00:00:01 [SMTP] Binding to address: 0.0.0.0:1025
-    # MailHog starts process, which needs to be terminated to avoid
-    # indefinite runtime.
-    output = shell_output("#{bin}/MailHog 2>&1 > /dev/null & sleep 3; kill $! | head -n 2")
-    assert_match /Binding to address/, output
+    pid = fork do
+      exec "#{bin}/MailHog"
+    end
+    sleep 2
+
+    begin
+      output = shell_output("curl -s http://localhost:8025")
+      assert_match %r{<title>MailHog</title>}, output
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
