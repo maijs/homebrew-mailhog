@@ -26,6 +26,7 @@ If you want to run MailHog manually, you can use [command line options](https://
 # MailHog as sendmail replacement
 To use MailHog as a sendmail replacement for PHP, add the following line to your `php.ini` file:
 ```
-sendmail_path = (HOMEBREW_PREFIX)/bin/MailHog sendmail test@test
+sendmail_path = $HOMEBREW_PREFIX/bin/MailHog sendmail test@test
 ```
-Restart PHP process after you make the change to `php.ini` file. Refer to `brew info mailhog` to see the full path to MailHog on your system.
+
+Replace `$HOMEBREW_PREFIX` with the path where your Homebrew is installed. Restart PHP process after you make the change to `php.ini` file. Refer to `brew info mailhog` to see the full path to MailHog on your system.
