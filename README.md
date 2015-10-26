@@ -1,7 +1,7 @@
 # :mailbox: Homebrew Mailhog
 
-## Don't use this tap!
-Mailhog formula is now available in official Homebrew repository (see the [PR](https://github.com/Homebrew/homebrew/pull/44884)). This tap is obsolete now and formula file is removed, but installations instructions are updated to guide you through.
+## Don't use this tap, use official repo!
+Mailhog formula is now available in official Homebrew repository (see the [PR](https://github.com/Homebrew/homebrew/pull/44884)). This tap is obsolete now and formula file is removed, but installation instructions are updated to guide you through the setup.
 
 ## How do I install the formula?
 `brew install mailhog`
